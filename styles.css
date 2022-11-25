@@ -1,0 +1,25 @@
+.invisible {
+	visibility: hidden;
+}
+
+#dropDownMenu {
+	width: max-content;
+}
+
+.dropDownMenuButton {
+	padding: 1rem;
+	width: max-content;
+	text-align: center;
+	background-color: slategrey;
+	color: snow;
+	cursor: pointer;
+}
+
+.dropDownMenuItem {
+	padding: 1rem;
+	width: auto;
+	text-align: left;
+	background-color: darkgrey;
+	color: white;
+	cursor: pointer;
+}
