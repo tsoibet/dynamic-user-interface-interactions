@@ -3,12 +3,35 @@
 	margin: 0;
 }
 
+p {
+	padding: 1rem 0.5rem 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
 .invisible {
 	display: none;
 }
 
 /* Drop-down Menu */
 #dropDownMenu {
+	width: 100wh;
+	height: 300px;
+	border: 0.1rem solid black;
+}
+
+#dropDownMenuTop {
+	display: flex;
+	flex-direction: row;
+
+	position: absolute;
+}
+
+#dropDownMenu .WebContent {
+	padding: 4rem 0.5rem;
+}
+
+.dropDownMenu {
 	width: max-content;
 }
 
