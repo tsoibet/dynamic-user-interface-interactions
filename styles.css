@@ -88,6 +88,7 @@ p {
 	z-index: 1;
 	position: absolute;
 	top: 0;
+	left: -110%;
 
 	display: grid;
 	grid-template-rows: auto 1fr;
@@ -99,12 +100,11 @@ p {
 	box-shadow: 0.1rem 0 0.5rem lightgrey;
 	background-color: white;
 
-	transform: translate(-110%);
-	transition: transform ease-in-out 300ms;
+	transition: left ease-in-out 300ms;
 }
 
 .out {
-	transform: translate(0);
+	left: 0;
 }
 
 .sideMenuTop {
