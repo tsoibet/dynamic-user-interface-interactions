@@ -7,4 +7,4 @@ createDropdownMenu('#dropDownMenuTop', '#dropDownMenu .WebContent', 'Drop-down2'
 
 createhamburgerMenu('#mobileMenu', ['Option 1', 'Option 22', 'Option 333', 'Option 4444']);
 
-createImageSlider('#imageSlider', ['./img/demo1.jpeg', './img/demo2.jpeg', './img/demo3.jpg', './img/demo4.jpg']);
+createImageSlider('#imageSlider', ['./img/demo1.jpeg', './img/demo2.jpeg', './img/demo3.jpg', './img/demo4.jpg', './img/demo5.jpg']);

@@ -1,5 +1,6 @@
 export default function createImageSlider(parent, imageList) {
     let index = 0;
+    const imgNum = imageList.length;
 
     const container = document.querySelector(parent);
     const imageSlider = document.createElement('div');
@@ -11,9 +12,9 @@ export default function createImageSlider(parent, imageList) {
     leftArrowDiv.addEventListener('click', () => {
         index -= 1;
         if (index < 0) {
-            index = imageList.length - 1;
+            index = imgNum - 1;
         }
-        setImage(imageList, index);
+        showSlide(index);
     });
     const leftArrow = document.createElement('div');
     leftArrow.textContent = '<';
@@ -25,10 +26,10 @@ export default function createImageSlider(parent, imageList) {
     rightArrowDiv.classList.add('arrow');
     rightArrowDiv.addEventListener('click', () => {
         index += 1;
-        if (index === imageList.length) {
+        if (index === imgNum) {
             index = 0;
         }
-        setImage(imageList, index);
+        showSlide(index);
     });
     const rightArrow = document.createElement('div');
     rightArrow.textContent = '>';
@@ -37,29 +38,18 @@ export default function createImageSlider(parent, imageList) {
 
     const slides = document.createElement('div');
     slides.classList.add('slides');
-    const leftSlide = document.createElement('div');
-    leftSlide.classList.add('left');
-    leftSlide.classList.add('slide');
-    slides.appendChild(leftSlide);
-    const middleSlide = document.createElement('div');
-    middleSlide.classList.add('middle');
-    middleSlide.classList.add('slide');
-    slides.appendChild(middleSlide);
-    const rightSlide = document.createElement('div');
-    rightSlide.classList.add('right');
-    rightSlide.classList.add('slide');
-    slides.appendChild(rightSlide);
+    slides.style.width = `${imgNum * 100}%`;
+    for (const image of imageList) {
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
+        slide.style.backgroundImage = `url('${image}')`;
+        slides.appendChild(slide);
+    }
     imageSlider.appendChild(slides);
     container.appendChild(imageSlider);
-
-    setImage(imageList, index);
 }
 
-function setImage(imageList, index) {
-    const leftSlide = document.querySelector('.left.slide');
-    leftSlide.style.backgroundImage = `url('${imageList.at((index - 1) % imageList.length)}')`;
-    const middleSlide = document.querySelector('.middle.slide');
-    middleSlide.style.backgroundImage = `url('${imageList[index]}')`;
-    const rightSlide = document.querySelector('.right.slide');
-    rightSlide.style.backgroundImage = `url('${imageList.at((index + 1) % imageList.length)}')`;
+function showSlide(index) {
+    const slides = document.querySelector('.slides');
+    slides.style.left = `-${index * 100}%`;
 }
