@@ -11,10 +11,6 @@ p {
 	text-align: center;
 }
 
-.invisible {
-	display: none;
-}
-
 /* Drop-down Menu */
 #dropDownMenu {
 	width: 90vw;
@@ -38,6 +34,10 @@ p {
 	width: max-content;
 }
 
+.dropDownMenu:hover .dropDownMenuContent {
+	display: block;
+}
+
 .dropDownMenuButton {
 	padding: 1rem;
 	width: max-content;
@@ -45,6 +45,10 @@ p {
 	background-color: slategrey;
 	color: snow;
 	cursor: pointer;
+}
+
+.dropDownMenuContent {
+	display: none;
 }
 
 .dropDownMenuItem {
