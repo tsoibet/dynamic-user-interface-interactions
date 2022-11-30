@@ -39,5 +39,7 @@ function showSideMenu() {
 }
 
 function menuItemOnClick(item) {
-    alert(`You clicked ${item}!`);
+    const page = document.querySelector('#mobileMenu .WebContent');
+    page.textContent = item;
+    hideSideMenu();
 }
