@@ -1,26 +1,17 @@
-function createHamburgerButton(parent, menuList) {
+export default function createhamburgerMenu(parent, menuList) {
     const container = document.querySelector(parent);
     const hamburgerButton = document.createElement('div');
     hamburgerButton.textContent = '≡';
     hamburgerButton.classList.add('hamburgerButton');
-    hamburgerButton.addEventListener('click', () => {
-        container.textContent = '';
-        createSideMenu(parent, menuList);
-    });
+    hamburgerButton.addEventListener('click', showSideMenu);
     container.appendChild(hamburgerButton);
-}
 
-function createSideMenu(parent, menuList) {
-    const container = document.querySelector(parent);
     const sideMenu = document.createElement('div');
     sideMenu.classList.add('sideMenu');
     const sideMenuTop = document.createElement('div');
     sideMenuTop.classList.add('sideMenuTop');
     sideMenuTop.textContent = 'X';
-    sideMenuTop.addEventListener('click', () => {
-        container.textContent = '';
-        createHamburgerButton(parent, menuList);
-    });
+    sideMenuTop.addEventListener('click', hideSideMenu);
     sideMenu.appendChild(sideMenuTop);
     const sideMenuList = document.createElement('div');
     sideMenuList.classList.add('sideMenuList');
@@ -37,10 +28,16 @@ function createSideMenu(parent, menuList) {
     container.appendChild(sideMenu);
 }
 
-function menuItemOnClick(item) {
-    alert(`You clicked ${item}!`);
+function hideSideMenu() {
+    const sideMenu = document.querySelector('.sideMenu');
+    sideMenu.classList.remove('out');
 }
 
-export default function createhamburgerMenu(parent, menuList) {
-    createHamburgerButton(parent, menuList);
+function showSideMenu() {
+    const sideMenu = document.querySelector('.sideMenu');
+    sideMenu.classList.add('out');
+}
+
+function menuItemOnClick(item) {
+    alert(`You clicked ${item}!`);
 }
