@@ -36,6 +36,20 @@ export default function createImageSlider(parent, imageList) {
     rightArrowDiv.appendChild(rightArrow);
     imageSlider.appendChild(rightArrowDiv);
 
+    const navigation = document.createElement('div');
+    navigation.classList.add('navigation');
+    for (let i = 0; i < imgNum; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.id = `dot-${i}`;
+        dot.addEventListener('click', () => {
+            index = i;
+            showSlide(index);
+        });
+        navigation.appendChild(dot);
+    }
+    imageSlider.appendChild(navigation);
+
     const slides = document.createElement('div');
     slides.classList.add('slides');
     slides.style.width = `${imgNum * 100}%`;
@@ -47,9 +61,18 @@ export default function createImageSlider(parent, imageList) {
     }
     imageSlider.appendChild(slides);
     container.appendChild(imageSlider);
+
+    showSlide(index);
 }
 
 function showSlide(index) {
     const slides = document.querySelector('.slides');
     slides.style.left = `-${index * 100}%`;
+
+    const previousDot = document.querySelector('.dot.on');
+    if (previousDot) {
+        previousDot.classList.remove('on');
+    }
+    const currentDot = document.querySelector(`#dot-${index}`);
+    currentDot.classList.add('on');
 }
