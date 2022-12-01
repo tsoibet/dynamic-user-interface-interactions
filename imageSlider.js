@@ -63,6 +63,13 @@ export default function createImageSlider(parent, imageList) {
     container.appendChild(imageSlider);
 
     showSlide(index);
+    setInterval(() => {
+        index += 1;
+        if (index === imgNum) {
+            index = 0;
+        }
+        showSlide(index);
+    }, 5000);
 }
 
 function showSlide(index) {
